@@ -238,6 +238,17 @@ router.get('/', controllerUser.listarUsuariosTesteo);
 //PayPal
 router.post('/api/pago-tarjeta', controladorPaypal.pagoTarjeta);
 
+app.get('/test-productos', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM productos LIMIT 5');
+        res.json(result.rows);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al consultar productos');
+    }
+});
+
+
 module.exports = router;
 // Rutas para la navegacion de categorias
 
