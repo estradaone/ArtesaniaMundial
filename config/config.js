@@ -1,5 +1,11 @@
+// config/config.js
 const config = {
-    databaseUrl: process.env.DATABASE_URL
+    database: {
+        host: 'localhost',
+        user: 'root',
+        password: 'admin',
+        database: 'artesania', // Cambia según el nombre de tu base de datos
+    }
 };
 
 module.exports = config;
