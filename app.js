@@ -20,10 +20,11 @@ app.use(cors());
 
 // 🧠 Configuración de sesiones
 app.use(session({
-    secret: 'secretKey',
+    secret: process.env.SESSION_SECRET || 'secretKey',
     resave: false,
     saveUninitialized: true,
 }));
+
 
 // 📦 Lectura de formularios y JSON
 app.use(bodyParser.urlencoded({ extended: true }));
